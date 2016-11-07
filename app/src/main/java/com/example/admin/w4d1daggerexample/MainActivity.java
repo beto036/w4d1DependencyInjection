@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     OkHttpClient client;
 
+    @Inject
+    BatmanService batmanService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void read(View view) {
-        BatmanService batmanService = retrofit.create(BatmanService.class);
+
         Call<Batman> call = batmanService.retrievCharacters("batman characters");
         call.enqueue(new Callback<Batman>() {
             @Override

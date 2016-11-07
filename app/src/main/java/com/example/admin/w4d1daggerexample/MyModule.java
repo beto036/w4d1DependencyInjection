@@ -56,4 +56,9 @@ public class MyModule {
     public OkHttpClient provideOkHTTP(){
         return new OkHttpClient();
     }
+
+    @Provides
+    public BatmanService provideBatManService(Retrofit retrofit){
+        return retrofit.create(BatmanService.class);
+    }
 }
